@@ -1,0 +1,44 @@
+﻿@inject HttpClient Http
+
+<strong>@Title</strong>
+
+    @if (courses == null)
+    {
+        <p><em>Loading courses...</em></p>
+    }
+
+    else
+    {
+        <ul>
+            @foreach (var str in courses)
+            {
+                <li>
+                    Course: @str.Name <br>
+                    Period: @str.Period <br>
+                    Progression: @str.Progression
+                </li>
+            }
+        </ul>
+    }
+
+    @code {
+        private Courses[]? courses;
+
+        protected override async Task OnInitializedAsync()
+        {
+            courses = await Http.GetFromJsonAsync<Courses[]>("sample-data/education.json");
+        }
+
+        public class Courses
+        {
+            public int Period { get; set; }
+
+            public string Name { get; set; }
+
+            public string Progression { get; set; }
+        }
+
+    // Demonstrates how a parent component can supply parameters
+    [Parameter]
+    public string? Title { get; set; }
+    }

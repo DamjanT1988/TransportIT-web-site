@@ -1,0 +1,31 @@
+﻿@page "/education"
+
+
+<PageTitle>EDUCATION</PageTitle>
+
+<h1>EDUCATION</h1>
+
+<h2>What courses?</h2>
+
+<p>FYI: <strong>@DateTime.Now</strong></p>
+
+<p>
+    Is it Monday?? - @if (DateTime.Now.DayOfWeek == DayOfWeek.Monday)
+    {
+        <strong>YES! :(</strong>
+    }
+    else
+    {
+        <strong>NO! Hopefully, it's Friday! :D</strong>
+    }
+</p>
+
+<List Title="A few courses:" />
+
+
+
+<style>
+    .education {
+        background-color: lightgray;
+    }
+</style>

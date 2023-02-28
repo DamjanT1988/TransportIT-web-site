@@ -1,0 +1,16 @@
+{
+  "name": "191-PROJECT-FRONTEND",
+  "short_name": "191-PROJECT-FRONTEND",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#03173d",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/assets/MGG-logotype.jpg",
+      "type": "image/jpg",
+      "sizes": "512x512"
+    }
+  ]
+}

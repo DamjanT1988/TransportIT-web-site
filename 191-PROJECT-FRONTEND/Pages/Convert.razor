@@ -1,0 +1,66 @@
+﻿@page "/convert"
+@inject HttpClient Http
+
+<PageTitle>CONVERT SERVICE</PageTitle>
+
+<h1>CONVERT SERVICE</h1>
+
+<p>Use one of two services below.</p>
+
+<h2>Convert meters to feet</h2>
+
+<h4>Meters: </h4>
+<input type="number" class="form-control-lg" @bind="Meter" />
+<br />
+<br />
+<button class="btn btn-danger" @onclick="CalculateFeet">Calculate!</button>
+<br />
+<br />
+<h4>@Meter meters in feet: @Feet feet</h4>
+<br />
+<br />
+@code {
+    private double FeetNo = 3.28;
+
+    private double Feet = 3.28;
+
+    private double Meter = 1.00;
+
+    private void CalculateFeet()
+    {
+        Feet = Math.Ceiling(Meter * FeetNo);
+    }
+
+}
+
+<h2>Convert kph to mph</h2>
+
+<h4>Kilometers per hour: </h4>
+<input type="number" class="form-control-lg" @bind="KPH" />
+<br />
+<br />
+<button class="btn btn-danger" @onclick="CalculateSpeed">Calculate!</button>
+<br />
+<br />
+<h4>@KPH KPH in MPH: @MPH MPH</h4>
+<br />
+<br />
+@code {
+    private double MPSNo = 0.62;
+
+    private double MPH = 0.62;
+
+    private double KPH = 1.00;
+
+    private void CalculateSpeed()
+    {
+        MPH = Math.Ceiling(KPH * MPSNo);
+    }
+}
+
+<style>
+    .convert {
+        background-color: lightgray;
+    }
+</style>
+
