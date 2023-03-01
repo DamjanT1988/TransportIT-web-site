@@ -1,0 +1,28 @@
+﻿[
+  {
+    "id": 6,
+    "product_title": "Bajs",
+    "ean_number": null,
+    "product_description": null,
+    "price": null,
+    "amount_storage": null,
+    "expiration_date": null,
+    "category": null,
+    "isSwedish": null,
+    "image_path": null,
+    "image_file": null
+  },
+  {
+    "id": 6,
+    "product_title": "Bajs",
+    "ean_number": null,
+    "product_description": null,
+    "price": null,
+    "amount_storage": null,
+    "expiration_date": null,
+    "category": null,
+    "isSwedish": null,
+    "image_path": null,
+    "image_file": null
+  }
+]
