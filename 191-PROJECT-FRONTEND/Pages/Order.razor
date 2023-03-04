@@ -1,60 +1,74 @@
 ﻿@page "/order"
+@using System.Net.Http.Json
 @inject HttpClient Http
 
 <PageTitle>CONVERT SERVICE</PageTitle>
 
-<h1>CONVERT SERVICE</h1>
+<h1>ORDER HERE</h1>
 
-<p>Use one of two services below.</p>
+@if (isSubmitted)
+{
+    <p>Thank you for placing the order! We will confirm it within two business days to your email!</p>
+}
+else
+{
+    <form>
+        <div class="form-group">
+            <label for="order">What do you want to order?</label>
+            <textarea type="order" class="form-control" rows="7" id="order" @bind="@order"></textarea>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="email">Enter your contact email:</label>
+            <input type="email" class="form-control" id="email" @bind-value="@email">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="telephone">Enter your contact telephone number:</label>
+            <input type="telephone" class="form-control" id="telephone" @bind-value="@telephone">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="company_name">Enter your company name:</label>
+            <input type="company_name" class="form-control" id="company_name" @bind-value="@company_name">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="company_org">Enter your company organisation number:</label>
+            <input type="company_org" class="form-control" id="company_org" @bind-value="@company_org">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="company_adress">Enter company adress:</label>
+            <textarea type="company_adress" class="form-control" rows="3" id="order" @bind="@order"></textarea>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="contact_name">Enter your contact person's name:</label>
+            <input type="contact_name" class="form-control" id="contact_name" @bind-value="@contact_name">
+        </div>
+        <br>
 
-<h2>Convert meters to feet</h2>
-
-<h4>Meters: </h4>
-<input type="number" class="form-control-lg" @bind="Meter" />
-<br />
-<br />
-<button class="btn btn-danger" @onclick="CalculateFeet">Calculate!</button>
-<br />
-<br />
-<h4>@Meter meters in feet: @Feet feet</h4>
-<br />
-<br />
-@code {
-    private double FeetNo = 3.28;
-
-    private double Feet = 3.28;
-
-    private double Meter = 1.00;
-
-    private void CalculateFeet()
-    {
-        Feet = Math.Ceiling(Meter * FeetNo);
-    }
-
+        <button type="button" class="btn btn-primary" @onclick="SubmitForm">Submit order!</button>
+    </form>
 }
 
-<h2>Convert kph to mph</h2>
-
-<h4>Kilometers per hour: </h4>
-<input type="number" class="form-control-lg" @bind="KPH" />
-<br />
-<br />
-<button class="btn btn-danger" @onclick="CalculateSpeed">Calculate!</button>
-<br />
-<br />
-<h4>@KPH KPH in MPH: @MPH MPH</h4>
-<br />
-<br />
 @code {
-    private double MPSNo = 0.62;
+    public string? order { get; set; }
+    public string? email { get; set; }
+    public string? telephone { get; set; }
+    public string? company_name { get; set; }
+    public string? company_org { get; set; }
+    public string? company_adress { get; set; }
+    public string? contact_name { get; set; }
 
-    private double MPH = 0.62;
+    private bool isSubmitted = false;
 
-    private double KPH = 1.00;
-
-    private void CalculateSpeed()
+    private async Task SubmitForm()
     {
-        MPH = Math.Ceiling(KPH * MPSNo);
+        var data = new { order, email, telephone, company_name, company_org, company_adress, contact_name };
+        await Http.PostAsJsonAsync("https://localhost:7090/api/Order/", data);
+        isSubmitted = true;
     }
 }
 
