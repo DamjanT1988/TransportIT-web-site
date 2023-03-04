@@ -40,7 +40,7 @@ else
         <br>
         <div class="form-group">
             <label for="company_adress">Enter company adress:</label>
-            <textarea type="company_adress" class="form-control" rows="3" id="order" @bind="@order"></textarea>
+            <textarea type="company_adress" class="form-control" rows="3" id="company_adress" @bind="@company_adress"></textarea>
         </div>
         <br>
         <div class="form-group">
@@ -61,13 +61,15 @@ else
     public string? company_org { get; set; }
     public string? company_adress { get; set; }
     public string? contact_name { get; set; }
+    public string? status { get; set; } = "Active order!";
+    public string? internal_note { get; set; } = "Add notes...";
 
     private bool isSubmitted = false;
 
     private async Task SubmitForm()
     {
-        var data = new { order, email, telephone, company_name, company_org, company_adress, contact_name };
-        await Http.PostAsJsonAsync("https://localhost:7090/api/Order/", data);
+        var data = new { order, email, telephone, company_name, company_org, company_adress, contact_name, status, internal_note };
+        await Http.PostAsJsonAsync("https://localhost:7090/api/OrderAPI/", data);
         isSubmitted = true;
     }
 }

@@ -24,7 +24,7 @@
 
         protected override async Task OnInitializedAsync()
         {
-        products = await Http.GetFromJsonAsync<Product[]>("https://localhost:7090/api/Product/");
+        products = await Http.GetFromJsonAsync<Product[]>("https://localhost:7090/api/ProductAPI/");
         }
 
         private class Product
