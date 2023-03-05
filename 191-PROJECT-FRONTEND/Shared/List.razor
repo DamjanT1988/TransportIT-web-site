@@ -10,11 +10,41 @@
     else
     {
         <ul>
-            @foreach (var str in products)
+            @foreach (var product in products)
             {
-                <li>
-                    Title: @str.Product_title <br>
-                </li>
+            <article>
+                <h3>@product.Product_title <br />Article #@product.Id</h3>
+
+                <br />
+                <strong>Product title:</strong>
+                <p className="list">@product.Product_title</p>
+
+                <strong>Article number:</strong>
+                <p>@product.Id</p>
+
+                <strong>EAN number:</strong>
+                <p>@product.Ean_number</p>
+
+                <strong>Product description:</strong>
+                <p>@product.Product_description</p>
+
+                <strong>Selling price:</strong>
+                <p>@($"{product.Price:C}") kr</p>
+
+                <strong>Amount in storage:</strong>
+                <p id="storage">@product.Amount_storage</p>
+
+                <strong>Expiration date:</strong>
+                <p>@product.Expiration_date</p>
+
+                <strong>Category:</strong>
+                <p>@product.Category</p>
+
+                <strong>Natíonality:</strong>
+                <p>@product.IsSwedish</p>
+                <br />
+                <hr />
+            </article>
             }
         </ul>
     }
