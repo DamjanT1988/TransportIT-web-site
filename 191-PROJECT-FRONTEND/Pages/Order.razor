@@ -2,7 +2,7 @@
 @using System.Net.Http.Json
 @inject HttpClient Http
 
-<PageTitle>CONVERT SERVICE</PageTitle>
+<PageTitle>ORDER SERVICE</PageTitle>
 
 <h1>ORDER HERE</h1>
 
@@ -18,41 +18,41 @@ else
     <form>
         <div class="form-group">
             <label for="order">What do you want to order?</label>
-            <textarea type="order" class="form-control" rows="7" id="order" @bind="@order"></textarea>
+            <textarea type="order" class="form-control-lg" rows="7" id="order" @bind="@order"></textarea>
         </div>
         <br>
         <div class="form-group">
             <label for="email">Enter your contact email:</label>
-            <input type="email" class="form-control" id="email" @bind-value="@email">
+            <input type="email" class="form-control-lg" id="email" @bind-value="@email">
         </div>
         <br>
         <div class="form-group">
             <label for="telephone">Enter your contact telephone number:</label>
-            <input type="telephone" class="form-control" id="telephone" @bind-value="@telephone">
+            <input type="telephone" class="form-control-lg" id="telephone" @bind-value="@telephone">
         </div>
         <br>
         <div class="form-group">
             <label for="company_name">Enter your company name:</label>
-            <input type="company_name" class="form-control" id="company_name" @bind-value="@company_name">
+            <input type="company_name" class="form-control-lg" id="company_name" @bind-value="@company_name">
         </div>
         <br>
         <div class="form-group">
             <label for="company_org">Enter your company organisation number:</label>
-            <input type="company_org" class="form-control" id="company_org" @bind-value="@company_org">
+            <input type="company_org" class="form-control-lg" id="company_org" @bind-value="@company_org">
         </div>
         <br>
         <div class="form-group">
             <label for="company_adress">Enter company adress:</label>
-            <textarea type="company_adress" class="form-control" rows="3" id="company_adress" @bind="@company_adress"></textarea>
+            <textarea type="company_adress" class="form-control-lg" rows="3" id="company_adress" @bind="@company_adress"></textarea>
         </div>
         <br>
         <div class="form-group">
             <label for="contact_name">Enter your contact person's name:</label>
-            <input type="contact_name" class="form-control" id="contact_name" @bind-value="@contact_name">
+            <input type="contact_name" class="form-control-lg" id="contact_name" @bind-value="@contact_name">
         </div>
         <br>
 
-        <button type="button" class="btn btn-primary" @onclick="SubmitForm">Submit order!</button>
+        <button type="button" class="btn btn-primary btn-lg" @onclick="SubmitForm">Submit order!</button>
     </form>
 }
 
