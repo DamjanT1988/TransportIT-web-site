@@ -2,6 +2,8 @@
     font-size: 16px;
 }
 
+
+
 #response {
     font-size: 1.5em;
 }
@@ -97,13 +99,6 @@ body {
         font-size: 1.35em;
     }
 
-    .navbar-toggler {
-        float: none;
-        color: black;
-        position: fixed;
-        top: 20px;
-    }
-
     .nav {
         list-style: none;
         float: none;
@@ -113,7 +108,7 @@ body {
         top: 75px;
         background-color: white;
         border: dashed;
-        padding: 5%;
+        padding: 4%;
     }
 
     .nav-item {
@@ -135,9 +130,18 @@ body {
     }
 
     .navbar-toggler {
+        float: none;
+        color: black;
+        position: fixed;
+        background-color: white;
+        top: 20px;
         border: dashed;
         padding-right: 35px;
         display: block;
+    }
+
+    .navbar-toggler-icon {
+        padding-top: 3px;
     }
 
     .wide {
