@@ -16,37 +16,37 @@ else
 
     <form>
         <div class="form-group">
-            <label for="order">What do you want to order?</label>
+            <label for="order">What do you want to order?</label><br>
             <textarea type="order" class="form-control-lg" rows="7" id="order" @bind="@order"></textarea>
         </div>
         <br>
         <div class="form-group">
-            <label for="email">Enter your contact email:</label>
+            <label for="email">Enter your contact email:</label><br>
             <input type="email" class="form-control-lg" id="email" @bind-value="@email">
         </div>
         <br>
         <div class="form-group">
-            <label for="telephone">Enter your contact telephone number:</label>
+            <label for="telephone">Enter your contact telephone number:</label><br>
             <input type="telephone" class="form-control-lg" id="telephone" @bind-value="@telephone">
         </div>
         <br>
         <div class="form-group">
-            <label for="company_name">Enter your company name:</label>
+            <label for="company_name">Enter your company name:</label><br>
             <input type="company_name" class="form-control-lg" id="company_name" @bind-value="@company_name">
         </div>
         <br>
         <div class="form-group">
-            <label for="company_org">Enter your company organisation number:</label>
+            <label for="company_org">Enter your company organisation number:</label><br>
             <input type="company_org" class="form-control-lg" id="company_org" @bind-value="@company_org">
         </div>
         <br>
         <div class="form-group">
-            <label for="company_adress">Enter company adress:</label>
+            <label for="company_adress">Enter company adress:</label><br>
             <textarea type="company_adress" class="form-control-lg" rows="3" id="company_adress" @bind="@company_adress"></textarea>
         </div>
         <br>
         <div class="form-group">
-            <label for="contact_name">Enter your contact person's name:</label>
+            <label for="contact_name">Enter your contact person's name:</label><br>
             <input type="contact_name" class="form-control-lg" id="contact_name" @bind-value="@contact_name">
         </div>
         <br>
@@ -100,6 +100,8 @@ else
         background-color: navy;
     }
 
-
+    label {
+        font-weight:700;
+    }
 </style>
 
