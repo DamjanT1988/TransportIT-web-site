@@ -6,15 +6,14 @@
 
 <h1>ORDER HERE</h1>
 
-<p>Please fill in the article number and the amount you wish to order! Then fill in your details.</p>
-
-
 @if (isSubmitted)
 {
-    <p>Thank you for placing the order! We will confirm it within two business days to your email!</p>
+    <div id="response">Thank you for placing the order! We will confirm it within two business days to your email!</div>
 }
 else
 {
+    <p>Please fill in the article number and the amount you wish to order! Then fill in your details. All fields must be filled to send the order!</p>
+
     <form>
         <div class="form-group">
             <label for="order">What do you want to order?</label>
@@ -54,6 +53,10 @@ else
 
         <button type="button" class="btn btn-primary btn-lg" @onclick="SubmitForm">Submit order!</button>
     </form>
+    @if (isNot)
+    {
+        <div id="response">Please fill in all fields!</div>
+    }
 }
 
 @code {
@@ -68,12 +71,19 @@ else
     public string? internal_note { get; set; } = "Add notes...";
 
     private bool isSubmitted = false;
+    private bool isNot = false;
 
     private async Task SubmitForm()
     {
-        var data = new { order, email, telephone, company_name, company_org, company_adress, contact_name, status, internal_note };
-        await Http.PostAsJsonAsync("https://localhost:7090/api/OrderAPI/", data);
-        isSubmitted = true;
+        if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(telephone) && !string.IsNullOrEmpty(company_name) && !string.IsNullOrEmpty(company_org) && !string.IsNullOrEmpty(company_adress) && !string.IsNullOrEmpty(contact_name))
+        {
+            var data = new { order, email, telephone, company_name, company_org, company_adress, contact_name, status, internal_note };
+            await Http.PostAsJsonAsync("https://localhost:7090/api/OrderAPI/", data);
+            isNot = false;
+            isSubmitted = true;
+        } else {
+            isNot = true;
+        }
     }
 }
 
@@ -81,5 +91,15 @@ else
     .order {
         background-color: lightgray;
     }
+
+    #response {
+        font-size: 1.5em;
+    }
+
+    .btn-primary {
+        background-color: navy;
+    }
+
+
 </style>
 
