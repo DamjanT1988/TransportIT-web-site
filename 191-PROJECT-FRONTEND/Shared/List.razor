@@ -2,20 +2,20 @@
 
 <strong>@Title</strong>
 
-    @if (products == null)
-    {
-        <p><em>Loading products..</em></p>
-    }
+@if (products == null)
+{
+    <p><em>Loading products..</em></p>
+}
 
-    else
-    {
-        <p>Search product by name: </p> 
+else
+{
+    <p>Search product by name: </p>
     <input type="text" @bind-value="searchTerm" placeholder="Search..." />
     <br />
     <br />
-        <ul>
-            @foreach (var product in filteredProducts)
-            {
+    <ul>
+        @foreach (var product in filteredProducts)
+        {
             <article>
                 <h3>@product.Product_title <br />Article #@product.Id</h3>
 
@@ -41,31 +41,42 @@
                 <p>@product.Expiration_date</p>
 
                 <strong>Category:</strong>
-                <p>@product.Category</p>
+                @if (product.Category == 1)
+                {
+                    <p>Domestic</p>
+                }
+                else if (product.Category == 2)
+                {
+                    <p>Forgein</p>
+                } else {
+                    <p>None filled</p>
+                }
 
                 <strong>Natíonality:</strong>
                 @if (product.IsSwedish == true)
                 {
                     <p>Swedish</p>
-                } else {
+                }
+                else
+                {
                     <p>International</p>
                 }
                 <img src="@($"data:image/png;base64,{Convert.ToBase64String(product.Image_data)}")" />
                 <br />
                 <hr />
             </article>
-            }
-        </ul>
-    }
-
-    @code {
-        private string searchTerm;
-        private List<Product> products;
-
-        protected override async Task OnInitializedAsync()
-        {
-        products = await Http.GetFromJsonAsync<List<Product>>("https://localhost:7090/api/ProductAPI/");
         }
+    </ul>
+}
+
+@code {
+    private string searchTerm;
+    private List<Product> products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = await Http.GetFromJsonAsync<List<Product>>("https://localhost:7090/api/ProductAPI/");
+    }
 
 
     private Product[] filteredProducts => string.IsNullOrWhiteSpace(searchTerm) ?
@@ -73,8 +84,8 @@
         products?.Where(x => x.Product_title.ToLower().Contains(searchTerm.ToLower())).ToArray() ?? new Product[0];
 
 
-        private class Product
-        {
+    private class Product
+    {
         //data fields
         public int Id { get; set; }
 
@@ -91,7 +102,7 @@
         public string? Image_file { get; set; }
         //image
         public byte[]? Image_data { get; set; }
-        }
+    }
 
     // Demonstrates how a parent component can supply parameters
     [Parameter]
