@@ -2,7 +2,9 @@
     font-size: 16px;
 }
 
-
+img {
+    max-width: 70%;
+}
 
 #response {
     font-size: 1.5em;
@@ -85,6 +87,9 @@ body {
         max-width: 200px;
     }
 
+    img {
+        max-width: 90%;
+    }
     body {
         margin-bottom: 60px;
         padding: 5px;
