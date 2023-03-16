@@ -3,7 +3,11 @@
 }
 
 img {
-    max-width: 70%;
+    max-width: 80%;
+}
+
+.img {
+    max-width: 175px;
 }
 
 #response {
@@ -40,9 +44,6 @@ body {
     margin: auto;
 }
 
-.img {
-    max-width: 200px;
-}
 
 .datetop {
     float: right;
