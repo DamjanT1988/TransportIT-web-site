@@ -50,6 +50,7 @@
                 } else {
                     <p>International</p>
                 }
+                <img src="@($"data:image/png;base64,{Convert.ToBase64String(product.Image_data)}")" />
                 <br />
                 <hr />
             </article>
@@ -88,6 +89,8 @@
         public bool? IsSwedish { get; set; }
         public string? Image_path { get; set; }
         public string? Image_file { get; set; }
+        //image
+        public byte[]? Image_data { get; set; }
         }
 
     // Demonstrates how a parent component can supply parameters
