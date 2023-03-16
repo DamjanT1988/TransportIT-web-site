@@ -83,13 +83,10 @@ body {
 
 
 @media screen and (max-width: 575px) {
-    .img {
-        max-width: 200px;
-    }
-
     img {
         max-width: 90%;
     }
+
     body {
         margin-bottom: 60px;
         padding: 5px;
@@ -135,12 +132,12 @@ body {
     }
 
     .navbar-toggler {
-        float: none;
+        float: right;
         color: black;
-        position: fixed;
+        position: relative;
         background-color: white;
-        top: 20px;
-        border: dashed;
+        top: 0px;
+        border: solid;
         padding-right: 35px;
         display: block;
     }
