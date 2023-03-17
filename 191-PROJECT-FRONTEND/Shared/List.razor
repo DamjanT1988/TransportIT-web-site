@@ -70,15 +70,18 @@ else
 }
 
 @code {
+    //declare variables and list
     private string searchTerm;
     private List<Product> products;
 
+    //task to get JSON data from API and put it in list variable
     protected override async Task OnInitializedAsync()
     {
         products = await Http.GetFromJsonAsync<List<Product>>("https://localhost:7090/api/ProductAPI/");
     }
 
-
+    //search and filter by the input from user in variable string
+    //check if the product exist and filter out those who do not match
     private Product[] filteredProducts => string.IsNullOrWhiteSpace(searchTerm) ?
         products?.ToArray() ?? new Product[0] :
         products?.Where(x => x.Product_title.ToLower().Contains(searchTerm.ToLower())).ToArray() ?? new Product[0];
