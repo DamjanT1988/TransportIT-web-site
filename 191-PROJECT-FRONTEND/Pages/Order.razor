@@ -58,6 +58,10 @@ else
     {
         <div id="response">Please fill in all fields!</div>
     }
+    @if (isNotRec)
+    {
+        <div id="response">The order form was not received to our server! Try again later or contact us by telephone or email. Thank you!</div>
+    }
 }
 
 @code {
@@ -71,10 +75,11 @@ else
     public string? contact_name { get; set; }
     public string? status { get; set; } = "Active order!";
     public string? internal_note { get; set; } = "Add notes...";
-    
+
     //variables for HTML modification
     private bool isSubmitted = false;
     private bool isNot = false;
+    private bool isNotRec = false;
 
     //task to validate order form
     private async Task SubmitForm()
@@ -84,13 +89,30 @@ else
         {
             //send order form to API
             var data = new { order, email, telephone, company_name, company_org, company_adress, contact_name, status, internal_note };
-            await Http.PostAsJsonAsync("https://localhost:7090/api/OrderAPI/", data);
-            
-            //change value in variable to change page information displayed
-            isNot = false;
-            isSubmitted = true;
+         
+            HttpResponseMessage results;
+            try
+            {
+                results = await Http.PostAsJsonAsync("https://localhost:7090/api/OrderAPI/", data);
 
-        } else {
+                //change value in variable to change page information displayed
+                isNot = false;
+                isSubmitted = true;
+
+                //Check if the response is successful
+                if (!results.IsSuccessStatusCode)
+                {
+                    isNotRec = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+                isNotRec = true;
+            }
+        }
+        else
+        {
             //if not filled, display error message
             isNot = true;
         }
