@@ -7,7 +7,7 @@
   "parameters": {
     "resourceGroupName": {
       "type": "string",
-      "defaultValue": "191-PROJECT-FRONTEND-TEST1-RG2",
+      "defaultValue": "KnowIT_TransportIT_website-TEST1-RG2",
       "metadata": {
         "description": "Name of the resource group for the resource. It is recommended to put resources under same resource group for better tracking."
       }
@@ -21,7 +21,7 @@
     },
     "resourceName": {
       "type": "string",
-      "defaultValue": "191-PROJECT-FRONTEND-TEST1",
+      "defaultValue": "KnowIT_TransportIT_website-TEST1",
       "metadata": {
         "description": "Name of the main resource to be created by this template."
       }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "191-PROJECT-FRONTEND", "191-PROJECT-FRONTEND\191-PROJECT-FRONTEND.csproj", "{E81DD3A1-1E0E-4BCF-B904-90E404467572}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnowIT_TransportIT_website", "KnowIT-TransportIT-website\KnowIT_TransportIT_website.csproj", "{E81DD3A1-1E0E-4BCF-B904-90E404467572}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
