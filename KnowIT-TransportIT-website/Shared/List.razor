@@ -9,7 +9,7 @@
 
 else
 {
-    <p>Search fares by fare name, transport type or week day: </p>
+    <p>Filter fares by fare name, transport type or week day: </p>
     <input type="text" @bind-value="searchTerm" placeholder="Search..." />
     <br />
     <br />
@@ -44,9 +44,15 @@ else
 
     //search and filter by the input from user in variable string
     //check if the product exist and filter out those who do not match
-    private Fare[] filteredFares => string.IsNullOrWhiteSpace(searchTerm) ?
+    private Fare[] filteredFares =>
+    string.IsNullOrWhiteSpace(searchTerm) ?
         fares?.ToArray() ?? new Fare[0] :
-        fares?.Where(x => x.TripTitle.ToLower().Contains(searchTerm.ToLower())).ToArray() ?? new Fare[0];
+        fares?.Where(x =>
+            (x.TripTitle != null && x.TripTitle.ToLower().Contains(searchTerm.ToLower())) ||
+            (x.Category != null && x.Category.ToLower().Contains(searchTerm.ToLower())) ||
+            (x.WeekDay != null && x.WeekDay.ToLower().Contains(searchTerm.ToLower()))
+        ).ToArray() ?? new Fare[0];
+
 
 
     private class Fare
