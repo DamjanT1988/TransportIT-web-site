@@ -54,6 +54,8 @@ else
     //state model properties and variables
     public string? Order { get; set; }
     public int? PassangerNo { get; set; }
+    public int? TicketCost { get; set; }
+    public bool? CheckTransport { get; set; }
 
     //variables for HTML modification
     private bool isSubmitted = false;
@@ -66,9 +68,13 @@ else
         //check if input fields are null or empty
         if (!string.IsNullOrEmpty(Order) && PassangerNo != 0)
         {
-            
+
+            //DEV  - required by model in API
+            TicketCost = 11;
+            CheckTransport = false;
+
             //send order form to API
-            var data = new { Order, PassangerNo};
+            var data = new { Order, PassangerNo, TicketCost, CheckTransport};
 
             HttpResponseMessage results;
             try
