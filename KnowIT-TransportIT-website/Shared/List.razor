@@ -13,15 +13,15 @@ else
     <input type="text" @bind-value="searchTerm" placeholder="Search..." />
     <br />
     <br />
+    <h4>List of all fares</h4>
     <ul>
         @foreach (var product in filteredFares)
         {
             <article>
-                <p className="list">Fare name: @product.TripTitle
-                <br />Fare number: @product.Id
-                <br/>Transport type: @product.Category
+                <p className="list">Fare: @product.TripTitle, number: #@product.Id
+                <br/>Transport: @product.Category
                 <br/>Price: @(product.Price == 0 ? "Free" : $"{product.Price} SEK")
-                <br />Week day: @product.WeekDay
+                <br/>Week day: @product.WeekDay
                 </p>
                 <hr>
             </article>
