@@ -93,7 +93,7 @@ else
             HttpResponseMessage results;
             try
             {
-                results = await Http.PostAsJsonAsync("https://localhost:7090/api/OrderAPI/", data);
+                results = await Http.PostAsJsonAsync("https://localhost:7297/api/Tickets/", data);
 
                 //change value in variable to change page information displayed
                 isNot = false;

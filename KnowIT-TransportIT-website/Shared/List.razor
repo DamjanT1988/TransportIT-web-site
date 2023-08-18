@@ -18,6 +18,7 @@ else
         {
             <article>
                 <p className="list">Fare name: @product.TripTitle
+                <br />Fare number: @product.Id
                 <br/>Transport type: @product.Category
                 <br/>Price: @(product.Price == 0 ? "Free" : $"{product.Price} SEK")
                 <br />Week day: @product.WeekDay
