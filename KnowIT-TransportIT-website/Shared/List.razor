@@ -17,13 +17,12 @@ else
         @foreach (var product in filteredFares)
         {
             <article>
-                <p className="list">Fare name: @product.TripTitle</p>
-                <p>Fare number: @product.Id</p>
-                <p>Transport type: @product.Category</p>
-                <p>Price: @(product.Price == 0 ? "Free" : $"{product.Price} SEK")</p>
-                <p>Week day: @product.WeekDay</p>
+                <p className="list">Fare name: @product.TripTitle
+                <br/>Transport type: @product.Category
+                <br/>Price: @(product.Price == 0 ? "Free" : $"{product.Price} SEK")
+                <br />Week day: @product.WeekDay
+                </p>
                 <hr>
-
             </article>
 
         }
