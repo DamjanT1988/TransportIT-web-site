@@ -20,11 +20,11 @@ else
     <ul>
         @foreach (var product in filteredFares)
         {
-
             <article>
-                <p className="list">Fare: @product.TripTitle, fare number: #@product.Id
+                <p className="list">
+                    Fare: @product.TripTitle, fare number: #@product.Id
                     <br />Transport: @product.Category, week day: @product.WeekDay
-                <br/>Price: @(product.Price == 0 ? "Free" : $"{product.Price} SEK")
+                    <br />Price: @(product.Price == 0 ? "Free" : $"{product.Price} SEK")
                 </p>
                 <hr>
             </article>
@@ -41,7 +41,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         fares = await Http.GetFromJsonAsync<List<Fare>>("https://localhost:7297/api/Tickets/");
-    
+
     }
 
     //search and filter by the input from user in variable string
@@ -69,9 +69,9 @@ else
         public string? Category { get; set; }
         public string? Expiration_date { get; set; }
         public string? WeekDay { get; set; }
-     }
+    }
 
     // Demonstrates how a parent component can supply parameters
     [Parameter]
     public string? Title { get; set; }
-    }
+}

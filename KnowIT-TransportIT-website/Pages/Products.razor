@@ -14,11 +14,12 @@
     <div id="response">Thank you for purchasing! You will get you tickets to your email in a few minutes! An invoice will be sent to your email</div>
     <br>
     <button type="button" class="btn btn-primary btn-lg" @onclick="NewOrder">Make another order</button>
-    <br><br>
+    <br>
+    <br>
 }
 else
 {
-// PURCHASE FORM
+    // PURCHASE FORM
     <p>Buy your ticket below. Only one ticket at a time can be purchased.</p>
     <form>
         <div class="form-group">
@@ -37,7 +38,7 @@ else
         <button type="button" class="btn btn-primary btn-lg" @onclick="SubmitForm">Submit purchase</button>
     </form>
     <br />
-//user feedback
+    //user feedback
     @if (isNot)
     {
         <div id="response">Please fill in all fields!</div>
@@ -72,7 +73,7 @@ else
             CheckTransport = false;
 
             //send order form to API
-            var data = new { Order, PassangerNo, TicketCost, CheckTransport};
+            var data = new { Order, PassangerNo, TicketCost, CheckTransport };
 
             HttpResponseMessage results;
             try
@@ -131,6 +132,7 @@ else
     label {
         font-weight: 700;
     }
+
     .products {
         background-color: lightgray;
     }

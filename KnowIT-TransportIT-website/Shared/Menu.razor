@@ -27,30 +27,30 @@
 </div>
 
 <div class="sidebar @NavMenuCssClass" @onclick="ToggleNavMenu">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white box-shadow mb-3">
-            <div class="nav d-sm-inline-flex justify-content-between">
-                <ul>
-                    <li class="nav-item">
-                        <NavLink class="nav-link start" href="" Match="NavLinkMatch.All">
-                            <span class="oi oi-home text-dark start" aria-hidden="true"></span> START
-                        </NavLink>
-                    </li>
-
-                    <li class="nav-item">
-                        <NavLink class="nav-link products" href="products">
-                            <span class="oi oi-book text-dark products" aria-hidden="true"></span> PURCHASE
-                        </NavLink>
-                    </li>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white box-shadow mb-3">
+        <div class="nav d-sm-inline-flex justify-content-between">
+            <ul>
                 <li class="nav-item">
-                        <NavLink class="nav-link about" href="about">
-                            <span class="oi oi-contrast text-dark about" aria-hidden="true"></span> ABOUT
-                        </NavLink>
-                    </li>
+                    <NavLink class="nav-link start" href="" Match="NavLinkMatch.All">
+                        <span class="oi oi-home text-dark start" aria-hidden="true"></span> START
+                    </NavLink>
+                </li>
 
-                </ul>
-            </div>
-        </nav>
-    </div>
+                <li class="nav-item">
+                    <NavLink class="nav-link products" href="products">
+                        <span class="oi oi-book text-dark products" aria-hidden="true"></span> PURCHASE
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link about" href="about">
+                        <span class="oi oi-contrast text-dark about" aria-hidden="true"></span> ABOUT
+                    </NavLink>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</div>
 
 @code {
     private bool collapseNavMenu = true;
