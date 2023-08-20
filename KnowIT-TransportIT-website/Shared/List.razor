@@ -2,10 +2,12 @@
 
 <strong>@Title</strong>
 
+<!--PRE-LOAD MESSAGE-->
 @if (fares == null)
 {
     <p><em>Loading fares..</em></p>
 }
+
 
 else
 {
@@ -13,19 +15,19 @@ else
     <input type="text" @bind-value="searchTerm" placeholder="Search..." />
     <br />
     <br />
+
     <h4>List of all fares</h4>
     <ul>
         @foreach (var product in filteredFares)
         {
+
             <article>
-                <p className="list">Fare: @product.TripTitle, number: #@product.Id
-                <br/>Transport: @product.Category
+                <p className="list">Fare: @product.TripTitle, fare number: #@product.Id
+                    <br />Transport: @product.Category, week day: @product.WeekDay
                 <br/>Price: @(product.Price == 0 ? "Free" : $"{product.Price} SEK")
-                <br/>Week day: @product.WeekDay
                 </p>
                 <hr>
             </article>
-
         }
     </ul>
 }
@@ -53,8 +55,7 @@ else
             (x.WeekDay != null && x.WeekDay.ToLower().Contains(searchTerm.ToLower()))
         ).ToArray() ?? new Fare[0];
 
-
-
+    //fare object
     private class Fare
     {
         //data fields
