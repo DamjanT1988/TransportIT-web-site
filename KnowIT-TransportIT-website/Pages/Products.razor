@@ -13,7 +13,7 @@
 {
     <div id="response">Thank you for purchasing! You will get you tickets to your email in a few minutes! An invoice will be sent to your email</div>
     <br>
-    <button type="button" class="btn btn-primary btn-lg" @onclick="NewOrder">Make another order</button>
+    <button type="button" class="btn btn-primary btn-lg" @onclick="NewOrder">Make another purchase</button>
     <br>
     <br>
 }
@@ -69,8 +69,8 @@ else
         {
 
             //DEV  - required by model in API
-            TicketCost = 11;
-            CheckTransport = false;
+            TicketCost = 99;
+            CheckTransport = null;
 
             //send order form to API
             var data = new { Order, PassangerNo, TicketCost, CheckTransport };
