@@ -8,20 +8,18 @@
 <h1>PURCHASE</h1>
 
 
-
+<!--AFTERPURCHASE RESPONSE-->
 @if (isSubmitted)
 {
     <div id="response">Thank you for purchasing! You will get you tickets to your email in a few minutes! An invoice will be sent to your email</div>
     <br>
     <button type="button" class="btn btn-primary btn-lg" @onclick="NewOrder">Make another order</button>
-    <br>
-    <br>
+    <br><br>
 }
 else
 {
+// PURCHASE FORM
     <p>Buy your ticket below. Only one ticket at a time can be purchased.</p>
-
-    @*DEVELOP MORE: check number and passanger number from db, confirm it exists, and password*@
     <form>
         <div class="form-group">
             <label for="order">Write fare number to buy:</label><br>
@@ -36,17 +34,17 @@ else
             <input type="password" class="form-control-lg" id="password">
         </div>
         <br>
-
         <button type="button" class="btn btn-primary btn-lg" @onclick="SubmitForm">Submit purchase</button>
     </form>
     <br />
+//user feedback
     @if (isNot)
     {
         <div id="response">Please fill in all fields!</div>
     }
     @if (isNotRec)
     {
-        <div id="response">The order form was not received to our server! Try again later or contact us by telephone or email. Thank you!</div>
+        <div id="response">Thepurchase was not received to our server! Try again later or contact us by telephone or email. Thank you!</div>
     }
 }
 
@@ -114,7 +112,7 @@ else
 }
 
 
-
+//child component - list render
 <List />
 
 
