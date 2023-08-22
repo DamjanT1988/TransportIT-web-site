@@ -31,7 +31,7 @@ else
             <input type="number" class="form-control-lg" id="passanger" @bind="@PassangerNo">
         </div>
         <div class="form-group">
-            <label for="password">Your passanger password (not needed in dev):</label><br>
+            <label for="password">Your passanger password (not needed):</label><br>
             <input type="password" class="form-control-lg" id="password">
         </div>
         <br>
@@ -69,8 +69,6 @@ else
         {
 
             //DEV  - required by model in API
-            TicketCost = 25;
-            CheckTransport = null;
 
             //send order form to API
             var data = new { Order, PassangerNo, TicketCost, CheckTransport };

@@ -22,7 +22,7 @@ else
         {
             <article>
                 <p className="list">
-                    Fare: @product.TripTitle, fare number: #@product.Id
+                    Fare: @product.TripTitle, fare number: #@product.TicketNumber
                     <br />Transport: @product.Category, week day: @product.WeekDay
                     <br />Price: @(product.Price == 0 ? "Free" : $"{product.Price} SEK")
                 </p>
